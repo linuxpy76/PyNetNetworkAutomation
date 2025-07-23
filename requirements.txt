@@ -4,4 +4,3 @@ black==23.3.0
 rich==13.3.3
 netmiko==4.2.0
 emoji==2.2.0
-
