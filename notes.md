@@ -2,14 +2,14 @@
 
 ## Lesson 1
 
-You can multiply strings
+### You can multiply strings
 
 ```py
 var = "text" * 3
 >>> texttexttext
 ```
 
-You can left, right and center align stuff using f-strings
+### You can left, right and center align stuff using f-strings
 
 ```py
 var = "Hello World!"
@@ -24,7 +24,7 @@ print(f"{'right align':>20} {var:>20}")
 print(f"{'center align':^12} {var:^20}")
 ```
 
-Striping white space off of strings with strip()
+### Striping white space off of strings with strip()
 
 ```py
 " Hello World! ".strip()
@@ -41,7 +41,7 @@ print(repr(" Hello World! ")).rstrip()
 >>> ' Hello World!'
 ```
 
-You can split strings with split()
+### You can split strings with split()
 
 ```py
 line = "Processor board ID FAL127990LA"
@@ -53,7 +53,7 @@ words = line.split()
 print(words[3])
 ```
 
-Concatination with standard, f-strings, and format() methods
+### Concatination with standard, f-strings, and format() methods
 
 ```py
 ip_addr = "10.12.17.1"
@@ -72,7 +72,7 @@ print()
 
 ## Lesson 2
 
-You can round numbers
+### You can round numbers
 
 ```py
 round(my_var,2)
@@ -85,7 +85,7 @@ i += 1
 i -= 1
 ```
 
-Booleans
+### Booleans
 
 ```py
 my_value = None
@@ -110,7 +110,7 @@ bool(val1)
 
 ```
 
-Reading files
+### Reading files
 
 ```py
 f = open(r"..\requirements.txt", mode="r")
@@ -126,7 +126,7 @@ f.seek(0)
 f.close()
 ```
 
-Writing to files, this is destructive
+### Writing to files, this is destructive
 
 ```py
 f = open("test_file.txt", "w")
@@ -135,3 +135,14 @@ f.write("Testing...\n")
 f.flush()
 f.close()
 ```
+
+### Appending to a file
+
+```py
+f = open("test_file.txt", "a")
+f.write("Hello again\n")
+f.flush()
+f.close()
+```
+### Context Managers
+
