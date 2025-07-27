@@ -11,10 +11,12 @@ usable_hosts = hosts - first_last
 header = "-" * 40
 
 print(header)
+print(f"First Subnet: {base}{hosts - hosts}/{prefix}")
+print(f"Second Subnet: {base}{hosts}/{prefix}")
+print()
 print(f"Network Address: {base}{hosts - hosts}")
 print(f"First Address: {base}1")
 print(f"Last Address: {base}{usable_hosts}")
 print(f"Broadcast Address: {base}{hosts - 1}")
-print(f"Second Subnet: {base}{hosts}")
 print(header)
 
