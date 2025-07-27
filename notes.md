@@ -146,3 +146,7 @@ f.close()
 ```
 ### Context Managers
 
+```py
+with open("show_version.txt", mode="r") as f:
+    data = f.read()
+```
