@@ -12,3 +12,11 @@ print(f"The fields variable is a {type(fields)} and has a length of {len(fields)
 print(f"Here is the first header: {fields[0]}")
 print(f"Here is the last header: {fields[-1]}")
 print()
+
+# Cleaning up fields
+fields.pop(5)
+fields.pop(4)
+fields.pop(3)
+fields.insert(3, "Hardware_Addr")
+print(f"Fields list is cleaned up:\n{fields}")
+print()
