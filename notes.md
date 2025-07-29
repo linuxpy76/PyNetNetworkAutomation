@@ -150,3 +150,79 @@ f.close()
 with open("show_version.txt", mode="r") as f:
     data = f.read()
 ```
+
+### Lists
+
+Data types don't have to be the same
+
+Zero based indices
+```py
+my_list = ['foo', 1, 'hello', [], None, 2.7]
+my_list[0]
+my_list[-1]
+```
+
+### Length and Range
+
+```py
+# Get length of list
+len(my_list)
+# Make a list with range 10 = 0-9
+list(range(10))
+# Change starting value
+list(range(1,5))
+```
+
+### List methods
+
+```py
+append() # add to end of list
+clear() # remove all elements
+copy() # create another copy of a list to point to same list
+count() # count number of occurences of element
+extend() # add list to end of list
+index() 
+insert()
+pop() # pop things off the list
+remove()
+reverse()
+sort()
+```
+
+## Lesson 3
+
+### Conditionals
+
+Evaluates to True or False
+
+```py
+ip_addr = "10.1.1.1"
+
+if "10.1" in ip_addr:
+    print("Found Address")
+
+# if, elif or else
+
+if expression:
+    print(1)
+elif other_expression:
+    print(2)
+else:
+    print(3)
+```
+
+```py
+a == b
+a != b
+a < b
+a <= b
+a > b
+a >= b
+
+a and b
+a or b
+not a
+a is b
+a is not b
+a in b
+```
