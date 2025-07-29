@@ -15,8 +15,7 @@ print()
 
 # Cleaning up fields
 fields.pop(5)
-fields.pop(4)
+fields[4] = "Hardware_Addr"
 fields.pop(3)
-fields.insert(3, "Hardware_Addr")
 print(f"Fields list is cleaned up:\n{fields}")
 print()
