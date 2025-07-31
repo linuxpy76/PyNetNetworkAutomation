@@ -317,3 +317,92 @@ for i in range(10):
 else:
     print("No 'break' happened")
 ```
+
+### While Loops
+
+While loops enter and stay in the loop as long as the expression is True
+
+```py
+i = 0
+while expression:
+    print("A message")
+    print("A second message")
+    i += 1
+    if i = 4:
+        break
+```
+
+#### For vs While
+
+For loops are for looping over collections of things (think "for each")
+
+While loops are event based - a condition to enter the loop and a condition to exit the loop.
+
+### List Comprehensions
+
+An easy way to dymanically create a list
+
+```py
+# An existing list
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# A list comprehension
+[x**2 for x in my_list]
+
+# Can include conditionals
+[x for x in my_list if x % 2 == 0]
+
+# Multiple loops
+[f"172.16.{x}.{y}" for x in range(10) for y in range(3)]
+
+# Make it more readable
+[f"172.16.{x}.{y}"
+    for x in range(10)
+    for y in range(3)]
+
+# One might question your sanity
+# Conditionals w/ multiple for loops
+[f"172.16.{x}.{y}"
+    for x in range(10)
+    for y in range(3)
+    if x == 9]
+```
+
+### Generator Expressions
+
+A generator in Python is a function constructed in a certain way such that each time that is called in a context of a loop it will return (yield) the next value.
+
+```py
+def gen(n):
+    i = 0
+    while i < n:
+        yield i
+        i += 1
+
+for val in gen(4):
+    print(val)
+```
+
+```py
+my_generator = (x**2 for x in range(10))
+type(my_generator)
+
+for val in my_generator:
+    print(val)
+```
+
+IP generator
+
+```py
+base_addr = "10.77"
+ip_generator = (
+    f"{base_addr}.{x}.{y}"
+    for x in range(10,13)
+    for y in range(2,11)
+)
+
+for ip_addr in ip_generator:
+    print(ip_addr)
+```
+
+Once generators are used they will become exhausted and cannot be used again.
