@@ -226,3 +226,94 @@ a is b
 a is not b
 a in b
 ```
+
+### For Loops
+
+```py
+for loop_var in iterator:
+    # do something
+    pass
+```
+
+```py
+list = [
+    1,
+    2,
+    3,
+    4,
+    5
+]
+
+for num in list:
+    print(num)
+```
+
+#### Break
+
+You can break out of for loops
+
+```py
+for i in range(10):
+    print(i)
+    if i == 5:
+        break
+print(f"Outside loop --> {i}")
+```
+
+#### Continue
+
+When 'continue' is executed, immediately jump back to the top of the for loop
+
+```py
+for i in range(10):
+    if i == 5:
+        continue
+    print(i)
+print(f"Outside loop --> {i}")
+```
+
+#### Nesting loops
+
+```py
+# List of tuples
+data_centers = [
+    ("sf1", "10.1.1."),
+    ("sf2", "10.1.2.")
+]
+
+# for loop w/ unpacking
+for dc, base_addr in data_centers:
+    # inner loop
+    for net_addr in range(1,5):
+        print(f"{dc} --> {base_addr}{net_addr}")
+```
+
+#### Enumerate
+
+```py
+data_centers = ["sf1", "sf2", "la1", "la2", "dallas"]
+
+for i, dc in enumerate(data_centers):
+    print(f"{i} --> {dc}")
+```
+
+#### Pass
+
+```py
+for i in range(10):
+    pass
+```
+
+#### Else
+
+Else executes if there is no break condition that is met
+
+```py
+for i in range(10):
+    print(i)
+    if i = 12:
+        break
+# no-break
+else:
+    print("No 'break' happened")
+```
