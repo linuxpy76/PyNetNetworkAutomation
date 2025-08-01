@@ -406,3 +406,27 @@ for ip_addr in ip_generator:
 ```
 
 Once generators are used they will become exhausted and cannot be used again.
+
+## Lesson 4
+
+### Sets
+
+There are no indices (sets are not ordered)
+
+#### Adding elements to a list
+
+```py
+addresses = {"192.168.100.1", "192.168.100.2"}
+addresses.add("10.1.1.1")
+addresses
+>>> {'10.1.1.1', '192.168.100.1', '192.168.100.2'}
+```
+
+#### Updating a list with another list
+
+```py
+addresses.update({'10.1.1.1', '10.1.1.2'})
+addresses
+{'10.1.1.1', '10.1.1.2', '192.168.100.1', '192.168.100.2'}
+```
+
