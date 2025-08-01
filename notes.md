@@ -507,3 +507,57 @@ my_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 ```
 
 ### Dictionaries
+
+Dictionaries are a ordered collection of key value pairs
+They are mutable
+
+```py
+my_dict = {
+    "rtr1": "10.100.1.1",
+    "rtr2": "10.100.2.1",
+    "rtr3": "10.100.3.1",
+}
+
+# Accessing Keys
+my_dict["rtr3"]
+'10.100.3.1'
+
+# Assigning a new value
+my_dict["rtr3"] = "10.100.100.1"
+```
+
+#### get() method
+
+```py
+# Returns None if it doesn't exist
+my_dict.get("rtr4")
+None
+
+# Change the default return value
+my_dict.get("rtr4", "unknown")
+'unknown'
+```
+
+#### Looping Over Dictionaries
+
+```py
+# This just gives the keys
+for k in my_dict:
+    print(k)
+
+# This retrieves the values
+for v in my_dict.values():
+    print(v)
+
+# Both keys and values
+for k, v in my_dict.items():
+    print(f"{k} --> {v}")
+```
+
+#### Dictionary Methods
+
+```py
+pop() # remove key value pair and return value
+del my_dict["value"] # removed key value pair
+my_dict_1.update(my_dict_2) # updates dict and overwrites
+```
