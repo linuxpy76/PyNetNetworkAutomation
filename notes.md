@@ -561,3 +561,101 @@ pop() # remove key value pair and return value
 del my_dict["value"] # removed key value pair
 my_dict_1.update(my_dict_2) # updates dict and overwrites
 ```
+
+#### Nested Dictionaries
+
+#### Dictionary Comprehension
+
+```py
+{f"rtr{x}": f"10.220.17.{x+20}" for x in range(1,5)}
+```
+
+Swapping the key and value (values must be unique and imutable)
+
+With duplicate keys the last value will overwrite the previous values
+
+```py
+routers = {
+    "rtr1": "192.168.150.1",
+    "rtr2": "192.168.151.1",
+    "rtr3": "192.168.152.1"
+}
+
+ip_addr = {v: k for k, v in routers.items()}
+```
+
+### Exceptions
+
+```py
+my_list = []
+
+try:
+    my_list[0]
+except IndexError:
+    print("Gracefully handled error")
+```
+
+
+#### Multiple exception types
+
+```py
+try:
+    my_list[0]
+except (IndexError, KeyError):
+    print("Whatever")
+
+try:
+    my_list[0]
+    my_dict["missing key"]
+except IndexError:
+    print("Missing list index")
+except KeyError:
+    print("Key missing")
+```
+
+#### Capturing and Re-raising Exceptions
+
+```py
+try:
+    my_list[0]
+except IndexError as e:
+    print(f"Info about exception: {str(e)}")
+    # re-raise the exception
+    raise
+```
+
+#### Generic Exception Handling
+
+```py
+try:
+    my_list[0]
+except Exception:
+    print("Generic exception handling")
+
+try:
+    my_list[0]
+except:
+    print("Which error happened?")
+```
+
+#### Finally Statement
+
+```py
+try:
+    my_list[0]
+    my_dict["missing key"]
+except IndexError:
+    print("Missing list index")
+except KeyError:
+    print("Key missing")
+finally:
+    print("This will always happen")
+```
+
+#### Raising an Exception
+
+```py
+if "10.88" no in ip_addr:
+    raise ValueError(f"Invalid IP address used: {ip_addr}")
+```
+
