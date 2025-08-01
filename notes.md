@@ -411,7 +411,10 @@ Once generators are used they will become exhausted and cannot be used again.
 
 ### Sets
 
-There are no indices (sets are not ordered)
+- There are no indices (sets are not ordered)
+- There are no repeated elements in a set
+  - Duplicate elements are automatically removed
+- Sets are automatically sorted
 
 #### Adding elements to a list
 
@@ -419,7 +422,7 @@ There are no indices (sets are not ordered)
 addresses = {"192.168.100.1", "192.168.100.2"}
 addresses.add("10.1.1.1")
 addresses
->>> {'10.1.1.1', '192.168.100.1', '192.168.100.2'}
+{'10.1.1.1', '192.168.100.1', '192.168.100.2'}
 ```
 
 #### Updating a list with another list
@@ -430,3 +433,77 @@ addresses
 {'10.1.1.1', '10.1.1.2', '192.168.100.1', '192.168.100.2'}
 ```
 
+#### Removing elements from a set
+
+```py
+addresses.remove("10.1.1.1")
+```
+
+```py
+addresses.discard("10.1.1.1")
+```
+
+#### Operations
+
+##### Union Operation
+
+```py
+# Like a full join in SQL
+af_addresses | la_addresses
+```
+
+##### Intersection
+
+```py
+# Like an inner join in SQL
+sf_addresses & la_addresses
+```
+
+##### Symmetric Difference
+
+```py
+# Like a full outer join in SQL
+sf_addresses ^ la_addresses
+```
+
+##### Subtract one set from another
+
+```py
+# Removes common elements from left set
+sf_addresses - la_addresses
+```
+
+#### Set Comprehension
+
+Syntax is exactly like list comprehensions except use curly braces
+
+```py
+my_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+{x**2 for x in my_set}
+{0, 1, 4, 9, 16, 25, 36, 49, 64, 81}
+```
+
+##### Adding a Conditional
+
+```py
+{x**2 for x in my_set if x % 2 == 0}
+{0, 4, 16, 36, 64}
+```
+
+##### Multiple Loops
+
+```py
+{f"{base_addr}.{x}.{y}" for x in range(5) for y in range(1,10)}
+```
+
+##### Multiple Loops and Conditional
+
+```py
+{f"{base_addr}.{x}.{y}"
+    for x in range(5)
+    for y in range(1,10)
+    if x == y
+}
+```
+
+### Dictionaries
