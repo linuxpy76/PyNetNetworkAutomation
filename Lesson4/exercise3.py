@@ -1,3 +1,5 @@
+from rich import print
+
 vlans = [
     {
         "vlanshowbr-vlanid": "1",
