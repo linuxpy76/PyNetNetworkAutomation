@@ -10,8 +10,6 @@ for line in data[1:]:
     ip_addr = parts.pop(0)
     protocol = parts.pop(-1)
     status = ' '.join(parts[2:])
-
-    interfaces[interface] = {}
     interfaces[interface] = {
         "ip_addr": ip_addr,
         "line_status": status,
