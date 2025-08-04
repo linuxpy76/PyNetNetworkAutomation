@@ -20,4 +20,3 @@ for k, v in interfaces.items():
     print(f"Interface: {k}")
     for inner_key, inner_value in v.items():
         print(f"  {inner_key}: {inner_value}")
-
