@@ -1,35 +1,57 @@
+from rich import print
+
+# Read in file
 with open("arubacx_show_vlan.txt") as f:
-    data = f.readlines()
+    data = f.read()
 
-vlans = {}
+# Initialize blank directory
+vlan_map = {}
 
-for line in data:
+for line in data.splitlines():
     if "-----" in line:
         continue
     if "Name" and "Type" in line:
         continue
 
-    line_elements = line.split()
-    vlan_id = line_elements[0]
-    interfaces_whole = line_elements[5]
-    interface_groups = interfaces_whole.split(",")
+    vlan_id, vlan_name, status, reason, vlan_type, interfaces = line.split()
+    intf_groups = interfaces.split(",")
 
-    for interface_group in interface_groups:
-        numbers = []
-        if "-" not in interface_group:
-            interface = interface_group
-            vlans[vlan_id] = interface
-        elif "-" in interface_group:
-            interfaces = interface_group.split("-")
-            for i in interfaces:
-                number = i.split("/")
-                numbers.append(number[2])
-                number.pop()
-            for i in range(int(numbers[0], (int(numbers[1] + 1)))):
-                
-                interface = str('/'.join(i))
-                vlans[vlan_id] = 
-                if "lag" in i:
-                  number = int(''.join(filter(str.isdigit, i)))
+    intf_list = []
+
+    # Construct list of interfaces associated with given VLAN ID
+    for intf in intf_groups:
+        # Check for ranges
+        if "-" in intf:
+            intf_start, intf_end = intf.split("-")
+            # Drop last character for base interface
+            base_intf = intf_start[:-1]
+
+            # Interfaces with x/x/x notation
+            if "/" in intf_start and "/" in intf_end:
+                intf_fields = intf_start.split("/")
+                start_idx = int(intf_fields[-1])
+
+                intf_fields = intf_end.split("/")
+                end_idx = int(intf_fields[-1])
+            
+            # lag interfaces
+            if "lag" in intf_start and "lag" in intf_end:
+                start_idx = int(intf_start.split("lag")[-1])
+                end_idx = int(intf_end.split("lag")[-1])
+
+            # Deconstruct the ranges
+            new_intf = [f"{base_intf}{idx}" for idx in range(start_idx, end_idx + 1)]
+            intf_list = intf_list + new_intf
+
         else:
-            print("error")
+            # not an interface range, just add the intf to the list
+            intf_list.append(intf)
+
+    # Add intf_list to VLAN map
+    vlan_map[int(vlan_id)] = intf_list
+
+print()
+print("VLAN Table:")
+print("-" * 25)
+print(vlan_map)
+print()
