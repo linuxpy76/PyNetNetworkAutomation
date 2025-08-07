@@ -1,25 +1,21 @@
+from rich import print
+
 base = "192.168.254."
-prefix = int(input("Enter CIDR notation prefix (25-30): "))
+prefix = int(input("CIDR 25-30: "))
 
-binary_prefix = f'{prefix:08b}'
-binary_prefix_list = [int(digit) for digit in str(binary_prefix)]
+prefix_binary = 32 - prefix
+hosts = 2 ** prefix_binary
+first_last = 2
+usable_hosts = hosts - first_last
 
-print(binary_prefix)
-print(binary_prefix_list)
+header = "-" * 40
 
-binary_subnet_mask = []
-binary_length = 32
-for i in range(prefix):
-    binary_subnet_mask.append(int(1))
-for i in range(32 - len(binary_subnet_mask)):
-    binary_subnet_mask.append(int(0))
-
-eight_bit_mask_list = [str(num) for num in binary_subnet_mask[24:]]
-eight_bit_mask_int = int(''.join(eight_bit_mask_list))
-
-
-
-print(eight_bit_mask_int)
-print(binary_subnet_mask[24:])
-print(binary_subnet_mask)
-print(len(binary_subnet_mask))
+print(header)
+print(f"First Subnet: {base}{hosts - hosts}/{prefix}")
+print(f"Second Subnet: {base}{hosts}/{prefix}")
+print()
+print(f"Network Address: {base}{hosts - hosts}")
+print(f"First Address: {base}1")
+print(f"Last Address: {base}{usable_hosts}")
+print(f"Broadcast Address: {base}{hosts - 1}")
+print(header)
