@@ -678,3 +678,28 @@ match = re.search("Configuration register", data)
 # View text
 match.group(0)
 ```
+
+#### Special Characters
+
+```re
+.       - Any single character
+.*      - Any character repeated zero or more times
+.+      - Any charter repeated one or more times
+.?      - Any character zero or one time
+\s      - Whitespace character class (\t \n \r)
+\S      - Non-whitespace character class
+\w      - Any word character
+\d      - Any digit character
+
+Anchors
+^       - Beginning of string or line
+$       - End of the string or line
+
+[]      - Constructing your own character class
+()      - Parenthesis for remembering things
+(|)     - Parenthesis can also be logical-or
+*?      - Convert to non-greedy
++?      - Convert to non-greedy
+
+\       - Escape sequence
+```
