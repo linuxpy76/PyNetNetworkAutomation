@@ -659,3 +659,22 @@ if "10.88" no in ip_addr:
     raise ValueError(f"Invalid IP address used: {ip_addr}")
 ```
 
+## Lesson 5
+
+### Regular Expressions: 
+
+#### The Simple Case (literal characters)
+
+Regular expression is used to extract information from strings
+
+```py
+import re
+
+re.search("Configuration register", data)
+
+# Boolean
+match = re.search("Configuration register", data)
+
+# View text
+match.group(0)
+```
