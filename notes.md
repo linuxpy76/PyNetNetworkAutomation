@@ -703,3 +703,13 @@ $       - End of the string or line
 
 \       - Escape sequence
 ```
+
+#### Capture Groups and RAW Strings
+
+```py
+m = re.search("Some String")
+
+m.group(0) # get entired capture
+
+m.group(1) # get next group
+```
