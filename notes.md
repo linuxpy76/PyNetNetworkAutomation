@@ -727,3 +727,21 @@ flags=re.M
 ```
 
 This makes the ^ & $ to instead of being beginning and end of the entire string it matches per line.
+
+#### Extracting patterns that repeat with re.findall()
+
+Returns a list of touples
+
+```py
+re.findall(pattern, data)
+```
+
+#### Making regex more readable
+
+```py
+ip_addr = r"(\d+\.\d+\.\d+\.\d+)"
+
+mac_addr = r"(\w+\.\w+\.\w+)"
+
+pattern = rf"Internet\s+{ip_addr}\s+[-\d]+\s{mac_addr}\s+"
+```
