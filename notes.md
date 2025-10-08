@@ -726,4 +726,4 @@ or
 flags=re.M
 ```
 
-This makes the ^ & $ to instead of being beginning and end of the entire string it instead matches per line.
+This makes the ^ & $ to instead of being beginning and end of the entire string it matches per line.
