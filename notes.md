@@ -745,3 +745,60 @@ mac_addr = r"(\w+\.\w+\.\w+)"
 
 pattern = rf"Internet\s+{ip_addr}\s+[-\d]+\s{mac_addr}\s+"
 ```
+
+#### Match Logic
+
+You can use the Match object to differentiate between successful and failed searches.
+
+```py
+match = re.search("Some string", data)
+
+if match:
+    print(match.group(0))
+```
+
+#### re.DOTALL
+
+By default the dot "." special character does not include newlines.
+
+We can change this behavior by adding the ```flags=re.DOTALL``` argument.
+
+```py
+m = re.search("^.*$", "simple test\nhello", flags=re.DOTALL)
+
+or
+
+flags=re.D
+```
+
+#### re.escape
+
+What if we have characters from a networking device or from user-input that we want to search on those?
+
+Many times we just want the literal pattern with no special regular expression meaning.
+
+```py
+prompt_literal = re.escape(prompt)
+
+
+```
+
+#### Using Named Capture Groups
+
+We can name our capture groups so that they can be more easily retrieved later.
+
+```py
+m = re.search("^Configuration register is (?P<configreg>\S+)$", data, flags=re.M)
+
+# Can return a dictionary of the named capture groups.
+m.groupdisct()
+{'configreg': '0x2102'}
+
+# Can also call the .group() method and provide the group name.
+m.group("confreg")
+'0x2102'
+```
+
+#### Regex101.com
+
+Source: https://regex101.com
