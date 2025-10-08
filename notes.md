@@ -707,9 +707,23 @@ $       - End of the string or line
 #### Capture Groups and RAW Strings
 
 ```py
-m = re.search("Some String")
+m = re.search(r"Some String (.*)", data)
 
 m.group(0) # get entired capture
 
 m.group(1) # get next group
 ```
+
+#### Anchors and re.MULTILINE
+
+Using ^ for beginning of string and $ for end of string, we can match the individual lines using ```flags=re.MULTILINE```
+
+```py
+re.search("^Config.*2102$", data, flags=re.MULTILINE)
+
+or
+
+flags=re.M
+```
+
+This makes the ^ & $ to instead of being beginning and end of the entire string it instead matches per line.
