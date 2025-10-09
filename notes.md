@@ -791,7 +791,7 @@ We can name our capture groups so that they can be more easily retrieved later.
 m = re.search("^Configuration register is (?P<configreg>\S+)$", data, flags=re.M)
 
 # Can return a dictionary of the named capture groups.
-m.groupdisct()
+m.groupdict()
 {'configreg': '0x2102'}
 
 # Can also call the .group() method and provide the group name.
