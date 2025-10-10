@@ -13,4 +13,4 @@ arp_table = re.findall(rf"^{ip_address}.+?{mac_address}.+?$", data, flags=re.MUL
 arp_table = dict(arp_table)
 
 for k, v in arp_table.items():
-    print(k, v)
+    print(f"{k} --> {v}")
