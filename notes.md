@@ -802,3 +802,22 @@ m.group("confreg")
 #### Regex101.com
 
 Source: https://regex101.com
+
+## Lesson 6
+
+### Functions
+
+#### On The Road to Reusable Code
+
+Functions can be written once and used multiple times.
+
+```py
+def my_func(arg1, arg2, arg3=None):
+    print("This is a function")
+    print(f"arg1 value --> {arg1}")
+
+    return arg1 + arg2
+
+# Call the function
+my_func(22, 33)
+```
