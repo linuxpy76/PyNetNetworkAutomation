@@ -795,7 +795,7 @@ m.groupdict()
 {'configreg': '0x2102'}
 
 # Can also call the .group() method and provide the group name.
-m.group("confreg")
+m.group("confireg")
 '0x2102'
 ```
 
@@ -821,3 +821,5 @@ def my_func(arg1, arg2, arg3=None):
 # Call the function
 my_func(22, 33)
 ```
+
+#### Function Parameters and Arguments
